@@ -17,24 +17,20 @@ interface Route {
 
 const ROUTES: Route[] = [
     {
-        url: '/public-api',
+        url: '/login',
         auth: false,
         creditCheck: false,
-        rateLimit: {
-            windowMs: 15 * 60 * 1000,
-            max: 5
-        },
         proxy: {
-            target: "http://localhost:5050",
+            target: "http://localhost:5051",
             changeOrigin: true,
         }
     },
     {
-        url: '/private-api',
+        url: '/public-rest-ressource',
         auth: false,
         creditCheck: false,
         proxy: {
-            target: "http://localhost:5555",
+            target: "http://localhost:5052",
             changeOrigin: true,
         }
     }

@@ -8,13 +8,13 @@ import { setupProxies } from './proxy';
 import { ROUTES } from './routes';
 
 const app: Express = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5555;
 // const apiProxy = httpProxy.createProxyServer();
 
 // app.use(cors());
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send('/ of API Gateway');
+    res.send('/ of Private API Gateway');
 })
 
 setupProxies(app, ROUTES);
