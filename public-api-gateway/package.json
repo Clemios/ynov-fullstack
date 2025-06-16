@@ -1,0 +1,31 @@
+{
+  "name": "public-api-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node dist/server.js",
+    "preserve": "npm run build",
+    "serve": "concurrently \"npx tsc -w\" \"npx nodemon dist/server.js\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Clément Fleury",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "http-proxy-middleware": "^3.0.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
