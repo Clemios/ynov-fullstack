@@ -3,7 +3,7 @@ dotenv.config();
 
 import express, { Express, Request, Response, NextFunction } from "express";
 // import httpProxy from "http-proxy";
-// import cors from "cors";
+import cors from "cors";
 import { setupProxies } from './proxy';
 import { ROUTES } from './routes';
 
@@ -11,7 +11,7 @@ const app: Express = express();
 const port = process.env.PORT || 5000;
 // const apiProxy = httpProxy.createProxyServer();
 
-// app.use(cors());
+app.use(cors());
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.send('/ of API Gateway');
