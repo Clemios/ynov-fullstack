@@ -13,7 +13,7 @@ const generateRoutes = (app: Application) => {
         } else if (reqType === 'PUT') {
             app.put(url, callback);                  
         } else if (reqType === 'DELETE') {
-            app.delete(url, callback);      Ò            
+            app.delete(url, callback);         
         } else {
             console.log(`No specific request type defined for ${url}`);
         }

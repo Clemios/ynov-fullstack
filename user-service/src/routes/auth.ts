@@ -8,6 +8,9 @@ interface Route {
 
 const ROUTES: Route[] = [
     // LIST
+    
+    // /refresh
+    // TTL 1semaine
     {
         url: '/login',
         reqType: 'POST',
@@ -19,18 +22,20 @@ const ROUTES: Route[] = [
             // user = userModel.findOne({ email });
 
             // AVEC bcrypt on peut comparer 2 hash facilement
-	        if (hash(password) === user.passord) {
+	        if (password === 'password123') { // Simulez la vérification du mot de passe
 		        // Encodage du JWT via la variable d'environnement JWT_SECRET
 		        const jwtToken = jwt.sign({ email }, 'shhhhh', {
-			    expiresIn: "24h",
+			    expiresIn: "12h",
 		    });
+        
 		    // Stockage du JWT dans un cookie HttpOnly
 		    res.cookie("jwtToken", jwtToken, { httpOnly: true, secure: true });
 		    // res.json(jwtToken);
 	    } else {
 		res.status(401).json({ message: "Authentification échouée." });
 	}
-        }
+    }
+    // logout
         
     },
         {

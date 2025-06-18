@@ -8,7 +8,7 @@ const ROUTES: Route[] = [
 
     },
     {
-        url: '/private',
+        url: '/',
 
     }
 ];

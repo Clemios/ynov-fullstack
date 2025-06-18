@@ -2,7 +2,7 @@ import fs from "fs";
 
 const dataDirectory = "data";
 
-function loadData(filename: any) {
+const loadData = (filename: any) => {
   const filePath = `${dataDirectory}/${filename}.json`;
   try {
     const data = fs.readFileSync(filePath, "utf8");
