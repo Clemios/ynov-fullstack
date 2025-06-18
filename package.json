@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Test Husky\"",
-    "prepare": "husky install"
+    "dev:all": "concurrently \"cd user-service && docker-compose up\" \"cd cv-service && docker-compose up\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
   }
 }

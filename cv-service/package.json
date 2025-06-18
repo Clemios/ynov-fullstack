@@ -9,8 +9,7 @@
     "dev": "npx nodemon",
     "preserve": "npm run build",
     "serve": "concurrently \"npx tsc -w\" \"npx nodemon dist/server.js\" ",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Clément Fleury",
