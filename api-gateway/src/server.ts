@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send('/ of API Gateway');
+    res.send('/ of API Gateway qui reload rrrr');
 })
 
 setupProxies(app, ROUTES);
