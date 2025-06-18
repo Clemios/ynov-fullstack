@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "email": "john@smith.mail",
+    "name": "John Smith",
+    "country": "United States"
+  },
+  {
+    "id": 2,
+    "email": "john@smith.mail",
+    "name": "Maria Garcia",
+    "country": "Spain"
+  },
+  {
+    "id": 3,
+    "email": "David@smKimith.mail",
+    "name": "David Kim",
+    "country": "South Korea"
+  },
+  {
+    "id": 4,
+    "email": "Marta@Johnson.mail",
+    "name": "Marta Johnson",
+    "country": "Canada"
+  }
+]
