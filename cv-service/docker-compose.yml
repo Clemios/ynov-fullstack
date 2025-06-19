@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  app:
+  cv_app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,8 +11,8 @@ services:
     ports:
       - "6060:6000"
     depends_on:
-      - db
-  db:
+      - cv_db
+  cv_db:
     image: postgres
     container_name: cv_pgdb
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
       - mon-network
     volumes:
       - local_pgdata:/var/lib/postgresql/data
-  pgadmin:
+  cv_pgadmin:
     image: dpage/pgadmin4
     container_name: cv-pgadmin4
     restart: unless-stopped
@@ -38,7 +38,7 @@ services:
     networks:
       - mon-network
     depends_on:
-      - db
+      - cv_db
 
 volumes:
   local_pgdata:
@@ -47,3 +47,4 @@ volumes:
 networks:
   mon-network:
     driver: bridge
+    external: true

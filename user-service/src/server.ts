@@ -15,11 +15,11 @@ setupLogging(app);
 
 app.use(cors());
 
-generateRoutes(app);
+// generateRoutes(app);
 
-// app.get('/', (req: Request, res: Response, next: NextFunction) => {
-//     res.send('/ of API of USER Service');
-// })
+app.get('/', (req: Request, res: Response, next: NextFunction) => {
+    res.send('/ of API of USER Service');
+})
 
 // app.get(url ,() => {})
 
@@ -28,6 +28,6 @@ app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
   res.status(500).send('Something broke!'); 
 });
 
-app.listen(port, () => {
-    console.log(`Service USER is running at http://localhost:${port}`);
+app.listen(9000, '0.0.0.0', () => {
+  console.log(`Running on http://0.0.0.0:${port}`);
 });

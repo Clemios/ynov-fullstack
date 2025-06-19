@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  api_gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api_gateway
+    restart: unless-stopped
+    networks:
+      - mon-network
+    ports:
+      - "5000:5000"
+
+networks:
+  mon-network:
+    driver: bridge
+    external: true

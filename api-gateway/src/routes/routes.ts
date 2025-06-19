@@ -17,11 +17,11 @@ interface Route {
 
 const ROUTES: Route[] = [
     {
-        url: '/public',
+        url: '/user',
         auth: false,
         creditCheck: false,
         proxy: {
-            target: "http://localhost:5050",
+            target: "http://user_app:9000",
             changeOrigin: true,
         }
     },

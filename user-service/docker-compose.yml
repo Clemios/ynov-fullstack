@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  app:
+  user_app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,11 +8,9 @@ services:
     restart: unless-stopped
     networks:
       - mon-network
-    ports:
-      - "9000:9000"
     depends_on:
-      - db
-  db:
+      - user_db
+  user_db:
     image: postgres
     container_name: user_pgdb
     restart: unless-stopped
@@ -24,7 +22,7 @@ services:
       - mon-network
     volumes:
       - local_pgdata:/var/lib/postgresql/data
-  pgadmin:
+  user_pgadmin:
     image: dpage/pgadmin4
     container_name: user-pgadmin4
     restart: unless-stopped
@@ -38,7 +36,7 @@ services:
     networks:
       - mon-network
     depends_on:
-      - db
+      - user_db
 
 volumes:
   local_pgdata:
@@ -47,3 +45,4 @@ volumes:
 networks:
   mon-network:
     driver: bridge
+    external: true
