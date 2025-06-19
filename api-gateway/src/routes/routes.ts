@@ -16,6 +16,8 @@ interface Route {
 }
 
 const ROUTES: Route[] = [
+
+    
     {
         url: '/user',
         auth: false,
