@@ -1,8 +1,8 @@
 // const artistService = require('../services/artist');
 import { loadData } from '../models/user';
 
-function list(req:any, res:any) {
-  const users = loadData('users')
+function list(req: any, res: any) {
+  const users = loadData('users');
   res.status(200).json(users);
 }
 
@@ -45,4 +45,4 @@ function list(req:any, res:any) {
 //   }
 // }
 
-export {list}
+export { list };

@@ -1,73 +1,70 @@
 import jwt from 'jsonwebtoken';
 
 interface Route {
-    url: string;
-    reqType?: 'GET' | 'POST' | 'PUT' | 'DELETE';
-    callback?: (req: any, res: any) => void;
+  url: string;
+  reqType?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  callback?: (req: any, res: any) => void;
 }
 
 const ROUTES: Route[] = [
-    // LIST
-    
-    // /refresh
-    // TTL 1semaine
-    {
-        url: '/login',
-        reqType: 'POST',
-        callback: (req: any, res: any) => {
-            const { email, password } = req.body;
+  // LIST
 
-            //TO DO
-            // requette pour recuperer l'user avec son mod de passe
-            // user = userModel.findOne({ email });
+  // /refresh
+  // TTL 1semaine
+  {
+    url: '/login',
+    reqType: 'POST',
+    callback: (req: any, res: any) => {
+      const { email, password } = req.body;
 
-            // AVEC bcrypt on peut comparer 2 hash facilement
-	        if (password === 'password123') { // Simulez la vérification du mot de passe
-		        // Encodage du JWT via la variable d'environnement JWT_SECRET
-		        const jwtToken = jwt.sign({ email }, 'shhhhh', {
-			    expiresIn: "12h",
-		    });
-        
-		    // Stockage du JWT dans un cookie HttpOnly
-		    res.cookie("jwtToken", jwtToken, { httpOnly: true, secure: true });
-		    // res.json(jwtToken);
-	    } else {
-		res.status(401).json({ message: "Authentification échouée." });
-	}
+      //TO DO
+      // requette pour recuperer l'user avec son mod de passe
+      // user = userModel.findOne({ email });
+
+      // AVEC bcrypt on peut comparer 2 hash facilement
+      if (password === 'password123') {
+        // Simulez la vérification du mot de passe
+        // Encodage du JWT via la variable d'environnement JWT_SECRET
+        const jwtToken = jwt.sign({ email }, 'shhhhh', {
+          expiresIn: '12h'
+        });
+
+        // Stockage du JWT dans un cookie HttpOnly
+        res.cookie('jwtToken', jwtToken, { httpOnly: true, secure: true });
+        // res.json(jwtToken);
+      } else {
+        res.status(401).json({ message: 'Authentification échouée.' });
+      }
     }
     // logout
-        
-    },
-        {
-        url: '/test',
-        reqType: 'GET',
-        callback: (req: any, res: any) => {
-            res.send('Test route for user service');
-        }
-    },
-    // POST FOR CREATE
-    {
-        url: '/',
-        reqType: 'POST',
-    },
-    // PUT FOR UPDATE
-    {
-        url: '/<id>',
-        reqType: 'PUT',
-    },
-    // GET USER
-    {
-        url: '/<id>',
-        reqType: 'GET',
-
+  },
+  {
+    url: '/test',
+    reqType: 'GET',
+    callback: (req: any, res: any) => {
+      res.send('Test route for user service');
     }
-    ,
-    // GET USER
-    {
-        url: '/<id>',
-        reqType: 'DELETE',
-
-    }
+  },
+  // POST FOR CREATE
+  {
+    url: '/',
+    reqType: 'POST'
+  },
+  // PUT FOR UPDATE
+  {
+    url: '/<id>',
+    reqType: 'PUT'
+  },
+  // GET USER
+  {
+    url: '/<id>',
+    reqType: 'GET'
+  },
+  // GET USER
+  {
+    url: '/<id>',
+    reqType: 'DELETE'
+  }
 ];
 
 export { ROUTES, Route };
