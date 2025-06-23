@@ -26,15 +26,6 @@ const ROUTES: Route[] = [
             target: "http://user_app:9000",
             changeOrigin: true,
         }
-    },
-    {
-        url: '/private',
-        auth: false,
-        creditCheck: false,
-        proxy: {
-            target: "http://localhost:5555",
-            changeOrigin: true,
-        }
     }
 ];
 

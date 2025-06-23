@@ -26,7 +26,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          onClick={() => fetch('http://localhost:5000/user')
+          onClick={() => fetch('http://localhost:5000/users')
             .then(response => setData2(response))
             .catch(error => console.error(error))}
           rel="noopener noreferrer"

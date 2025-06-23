@@ -17,32 +17,32 @@ services:
     container_name: user_pgdb
     restart: unless-stopped
     environment:
-      POSTGRES_USER: user-name
-      POSTGRES_PASSWORD: strong-password
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
       POSTGRES_DB: user_db
     networks:
       - mon-network
     volumes:
-      - local_pgdata:/var/lib/postgresql/data
+      - user-local_pgdata:/var/lib/postgresql/data
   user_pgadmin:
     image: dpage/pgadmin4
     container_name: user-pgadmin4
     restart: unless-stopped
     ports:
-      - '8888:80'
+      - '9888:80'
     environment:
-      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
-      PGADMIN_DEFAULT_PASSWORD: strong-password
+      PGADMIN_DEFAULT_EMAIL: user@user.user
+      PGADMIN_DEFAULT_PASSWORD: user
     volumes:
-      - pgadmin-data:/var/lib/pgadmin
+      - user-pgadmin-data:/var/lib/pgadmin
     networks:
       - mon-network
     depends_on:
       - user_db
 
 volumes:
-  local_pgdata:
-  pgadmin-data:
+  user-local_pgdata:
+  user-pgadmin-data:
 
 networks:
   mon-network:
