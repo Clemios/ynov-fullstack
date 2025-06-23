@@ -19,7 +19,7 @@ const ROUTES: Route[] = [
 
     
     {
-        url: '/user',
+        url: '/users',
         auth: false,
         creditCheck: false,
         proxy: {

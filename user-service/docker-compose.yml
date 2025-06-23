@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 services:
   user_app:
     build:
@@ -10,6 +10,8 @@ services:
       - mon-network
     depends_on:
       - user_db
+    ports:
+      - '9000:9000'
   user_db:
     image: postgres
     container_name: user_pgdb
@@ -27,7 +29,7 @@ services:
     container_name: user-pgadmin4
     restart: unless-stopped
     ports:
-      - "8888:80"
+      - '8888:80'
     environment:
       PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
       PGADMIN_DEFAULT_PASSWORD: strong-password

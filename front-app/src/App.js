@@ -9,7 +9,7 @@ function App() {
 
  // trigger fetch to the public API
   useEffect(() => {
-    fetch('http://localhost:5000/public')
+    fetch('http://localhost:5000')
       .then(response => setData(response))
       .catch(error => console.error(error));
   }, []);
@@ -26,7 +26,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          onClick={() => fetch('http://localhost:5000/private')
+          onClick={() => fetch('http://localhost:5000/user')
             .then(response => setData2(response))
             .catch(error => console.error(error))}
           rel="noopener noreferrer"

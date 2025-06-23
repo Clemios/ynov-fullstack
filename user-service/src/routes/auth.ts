@@ -1,70 +1,10 @@
-import jwt from 'jsonwebtoken';
+import { Router } from 'express';
+import { signup, login, logout } from '../controllers/auth';
 
-interface Route {
-  url: string;
-  reqType?: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  callback?: (req: any, res: any) => void;
-}
+const router = Router();
 
-const ROUTES: Route[] = [
-  // LIST
+router.post('/signup', signup);
+router.post('/login', login);
+router.post('/logout', logout);
 
-  // /refresh
-  // TTL 1semaine
-  {
-    url: '/login',
-    reqType: 'POST',
-    callback: (req: any, res: any) => {
-      const { email, password } = req.body;
-
-      //TO DO
-      // requette pour recuperer l'user avec son mod de passe
-      // user = userModel.findOne({ email });
-
-      // AVEC bcrypt on peut comparer 2 hash facilement
-      if (password === 'password123') {
-        // Simulez la vérification du mot de passe
-        // Encodage du JWT via la variable d'environnement JWT_SECRET
-        const jwtToken = jwt.sign({ email }, 'shhhhh', {
-          expiresIn: '12h'
-        });
-
-        // Stockage du JWT dans un cookie HttpOnly
-        res.cookie('jwtToken', jwtToken, { httpOnly: true, secure: true });
-        // res.json(jwtToken);
-      } else {
-        res.status(401).json({ message: 'Authentification échouée.' });
-      }
-    }
-    // logout
-  },
-  {
-    url: '/test',
-    reqType: 'GET',
-    callback: (req: any, res: any) => {
-      res.send('Test route for user service');
-    }
-  },
-  // POST FOR CREATE
-  {
-    url: '/',
-    reqType: 'POST'
-  },
-  // PUT FOR UPDATE
-  {
-    url: '/<id>',
-    reqType: 'PUT'
-  },
-  // GET USER
-  {
-    url: '/<id>',
-    reqType: 'GET'
-  },
-  // GET USER
-  {
-    url: '/<id>',
-    reqType: 'DELETE'
-  }
-];
-
-export { ROUTES, Route };
+export default router;

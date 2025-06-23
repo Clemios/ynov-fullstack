@@ -1,48 +1,30 @@
-// const artistService = require('../services/artist');
-import { loadData } from '../models/user';
+import { Request, Response } from 'express';
+import * as userService from '../services/user';
 
-function list(req: any, res: any) {
-  const users = loadData('users');
-  res.status(200).json(users);
-}
+export const getUsers = (req: Request, res: Response) => {
+  res.json(userService.getAllUsers());
+};
 
-// function read(req:any, res:any) {
-//   const artistId = req.params.id;
-//   const artist = artistService.find(artistId);
-//   if (artist)
-//     res.status(200).json(artist);
-//   else
-//     res.status(404).json({ message: "Artiste non trouvé" });
-// }
+export const getUser = (req: Request, res: Response) => {
+  const user = userService.getUserById(req.params.id);
+  if (!user) res.status(404).json({ message: 'User not found' });
+  res.json(user);
+};
 
-// function create(req: any, res) {
-//   const datas = req.body;
-//   const createdArtist = artistService.create(datas);
-//   if (createdArtist)
-//     res.status(201).json({ message: "Artiste créé" });
-//   else
-//     res.status(400).json({ message: "Erreur lors de l'insertion" });
-// }
+export const createUser = (req: Request, res: Response) => {
+  const { name, email } = req.body;
+  const newUser = userService.createUser({ name, email });
+  res.status(201).json(newUser);
+};
 
-// function update(req:any, res: any) {
-//   const artistId = req.params.id;
-//   const datas = req.body;
-//   const updatedArtist = artistService.update(artistId, datas);
-//   if (updatedArtist) {
-//     res.status(200).json({ message: "Artiste édité" });
-//   } else {
-//     res.status(400).json({ message: "Erreur lors de l'édition" });
-//   }
-// }
+export const updateUser = (req: Request, res: Response) => {
+  const updated = userService.updateUser(req.params.id, req.body);
+  if (!updated) res.status(404).json({ message: 'User not found' });
+  res.json(updated);
+};
 
-// function remove(req, res) {
-//   const artistId = req.params.id;
-//   const removedArtist = artistService.remove(artistId);
-//   if (removedArtist) {
-//     res.status(200).json({ message: "Artiste supprimé" });
-//   } else {
-//     res.status(400).json({ message: "Erreur lors de la suppression" });
-//   }
-// }
-
-export { list };
+export const deleteUser = (req: Request, res: Response) => {
+  const success = userService.deleteUser(req.params.id);
+  if (!success) res.status(404).json({ message: 'User not found' });
+  res.status(204).send();
+};
