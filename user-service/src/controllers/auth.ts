@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
 import * as authService from '../services/auth';
 
-export const signup = (req: Request, res: Response) => {
+export const signup = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
 
-  if (!email || !password || !name) {
+  if (!email || !password) {
     res.status(400).json({ message: 'Missing fields' });
   }
 
-  const result = authService.signup({ name, email, password });
+  const result = await authService.signup({ name, email, password });
 
   if (!result) {
     res.status(409).json({ message: 'User already exists' });
@@ -17,14 +17,16 @@ export const signup = (req: Request, res: Response) => {
   res.status(201).json(result);
 };
 
-export const login = (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
     res.status(400).json({ message: 'Missing credentials' });
   }
 
-  const result = authService.login(email, password);
+  // get in user the user with the given email + compare passwords
+
+  const result = await authService.login(email, password);
 
   if (!result) {
     res.status(401).json({ message: 'Invalid credentials' });

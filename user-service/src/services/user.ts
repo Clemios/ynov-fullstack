@@ -1,4 +1,5 @@
 import db from '../config/db';
+import bcrypt from 'bcrypt';
 import { NewUser, User } from '../models/user';
 
 export const getAllUsers = async (): Promise<User[]> => {
@@ -11,12 +12,20 @@ export const getUserById = async (id: string): Promise<User | null> => {
   return result.rows[0] || null;
 };
 
+export const getUserByEmail = async (email: string): Promise<User | null> => {
+  const result = await db.query('SELECT id, name, email, password FROM users WHERE email = $1', [
+    email
+  ]);
+  return result.rows[0] || null;
+};
+
 export const createUser = async (user: NewUser): Promise<User> => {
+  const hashedPassword = await bcrypt.hash(user.password, 10);
   const result = await db.query(
     `INSERT INTO users (name, email, password)
      VALUES ($1, $2, $3)
      RETURNING id, name, email`,
-    [user.name, user.email, user.password]
+    [user.name, user.email, hashedPassword]
   );
   return result.rows[0];
 };

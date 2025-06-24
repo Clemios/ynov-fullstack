@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 
-const pool = new Pool({
+const db = new Pool({
   host: 'user_db', // Docker network hostname
   port: 5432,
   user: process.env.DB_USER || 'user',
@@ -8,4 +8,4 @@ const pool = new Pool({
   database: process.env.DB_NAME || 'user_db'
 });
 
-export default pool;
+export default db;

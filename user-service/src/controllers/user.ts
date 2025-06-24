@@ -15,7 +15,7 @@ export const getUser = async (req: Request, res: Response) => {
 export const createUser = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
   if (!email) {
-    return res.status(400).json({ message: 'Email is required' });
+    res.status(400).json({ message: 'Email is required' });
   }
 
   const newUser = await userService.createUser({ name, email, password });
