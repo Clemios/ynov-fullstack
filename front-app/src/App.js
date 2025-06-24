@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import logo from './logo.svg';
 import './App.css';
+import UserForm from './containers/userForm';
 
 function App() {
  const [data, setData] = useState(null);
@@ -34,6 +35,9 @@ function App() {
           Click to test API proxy
         </a>
       </header>
+      <section>
+        <UserForm />
+      </section>
     </div>
   );
 }
