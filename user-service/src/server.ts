@@ -5,6 +5,7 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { setupLogging } from './logging';
 import userRoutes from './routes/user';
+import authRoutes from './routes/auth';
 
 const app: Express = express();
 const router = app.router;
@@ -30,6 +31,7 @@ app.get('/test', (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.use('/', userRoutes);
+router.use('/auth', authRoutes);
 
 app.listen(9000, '0.0.0.0', () => {
   console.log(`Running on http://0.0.0.0:${port}`);
