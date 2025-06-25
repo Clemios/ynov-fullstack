@@ -1,10 +1,15 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const UserForm = () => {
     const [form, setForm] = useState({ name: '', email: '', password: '' });
 
+    useEffect(() => {
+
+    }, []);
+
     const handleChange = (e) => {
+        console.log("handleChange", e);
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
