@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function createUser(userData) {
+export async function createUser({name, email, password}) {
     axios.post('/users', {
     name: userData.name,
     email: userData.email

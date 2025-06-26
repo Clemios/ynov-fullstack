@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
-import UserForm from './containers/userForm';
+import UserForm from './containers/organisms/userForm';
+import Button from './components/atoms/Button';
+import { axiosRequests } from './helpers/request';
+import ChakraShowcase from './components/ChakraUIShowcase';
 
 function App() {
  const [data, setData] = useState(null);
@@ -10,9 +13,13 @@ function App() {
 
  // trigger fetch to the public API
   useEffect(() => {
-    fetch('http://localhost:5000')
-      .then(response => setData(response))
-      .catch(error => console.error(error));
+    // fetch('http://localhost:5000')
+    //   .then(response => setData(response))
+    //   .catch(error => console.error(error));
+          axiosRequests.get("http://localhost:5000/users")
+          .then(response => {
+                console.log("response", response);
+            })
   }, []);
 
   console.log("Data du fetch public", data)
@@ -36,7 +43,14 @@ function App() {
         </a>
       </header>
       <section>
+        <h1 className="text-3xl font-bold underline">
+          Subscribe
+        </h1>
+        <Button />
         <UserForm />
+      </section>
+      <section>
+        <ChakraShowcase />
       </section>
     </div>
   );
