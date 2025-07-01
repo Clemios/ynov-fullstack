@@ -146,7 +146,7 @@ git commit -m "Initial commit"
 
 ### a. api-gateway
 
-For detailed setup instructions for the API Gateway, see [api-gateway/SETUP.md](../api-gateway/SETUP.md).
+For detailed setup instructions for the API Gateway, see [api-gateway/SETUP.md](/api-gateway/SETUP.md).
 
 > **⚠️ Disclaimer:**  
 > The API Gateway in this project uses the [`http-proxy-middleware`](https://www.npmjs.com/package/http-proxy-middleware) Node module for request proxying.  
@@ -157,7 +157,7 @@ For detailed setup instructions for the API Gateway, see [api-gateway/SETUP.md](
 ### b. user-service
 
 _(or any other service that is a REST API with a database)_
-For detailed setup for the REST API User, see [user-service/SETUP.md](../user-service/SETUP.md).
+For detailed setup for the REST API User, see [user-service/SETUP.md](/user-service/SETUP.md).
 
 ## Notes
 
