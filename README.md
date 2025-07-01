@@ -4,6 +4,12 @@ This project is a fullstack learning environment, designed to help you understan
 
 ---
 
+## Building from scratch
+
+If you want to reproduce on your own the steps to initiate this fullstack project, please reffer to STEPS.md
+
+---
+
 ## Project Structure
 
 - **api-gateway/**: Entry point for backend requests, proxies and routes traffic to the appropriate services.
