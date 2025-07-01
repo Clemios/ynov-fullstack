@@ -154,4 +154,3 @@ This project has been **ejected** from Create React App.
 ## Additional Notes
 
 - This project was originally created with [Create React App](https://create-react-app.dev/), but all further setup (styling, UI libraries, build configuration, etc.) was done manually for full control and customization.
-- For more info, see the [README.md](./README.md).
