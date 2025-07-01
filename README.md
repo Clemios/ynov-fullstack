@@ -6,7 +6,7 @@ This project is a fullstack learning environment, designed to help you understan
 
 ## Building from scratch
 
-If you want to reproduce on your own the steps to initiate this fullstack project, please reffer to STEPS.md
+To follow the step-by-step process for setting up this fullstack project from scratch, see [STEPS.md](./STEPS.md).
 
 ---
 
