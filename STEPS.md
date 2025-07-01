@@ -144,11 +144,20 @@ git commit -m "Initial commit"
 
 ## 10. Continue Development
 
-- Add routes, controllers, models, and business logic to each backend service.
-- Build out the React frontend with components, pages, and API calls.
-- Use Docker Compose to orchestrate services and databases.
+### a. api-gateway
 
----
+For detailed setup instructions for the API Gateway, see [api-gateway/SETUP.md](../api-gateway/SETUP.md).
+
+> **⚠️ Disclaimer:**  
+> The API Gateway in this project uses the [`http-proxy-middleware`](https://www.npmjs.com/package/http-proxy-middleware) Node module for request proxying.  
+> **This setup is intended for learning and experimentation only.**  
+> **Do _not_ use this proxy approach as-is in production environments.**  
+> For production, consider robust solutions like [NGINX](https://www.nginx.com/), [Traefik](https://traefik.io/), or a dedicated API Gateway service.
+
+### b. user-service
+
+_(or any other service that is a REST API with a database)_
+For detailed setup for the REST API User, see [user-service/SETUP.md](../user-service/SETUP.md).
 
 ## Notes
 
