@@ -159,6 +159,11 @@ For detailed setup instructions for the API Gateway, see [api-gateway/SETUP.md](
 _(or any other service that is a REST API with a database)_
 For detailed setup for the REST API User, see [user-service/SETUP.md](/user-service/SETUP.md).
 
+### b. front-app
+
+_(or any other REACT app built from scratch using Create React App)_
+For detailed setup for the REST API User, see [front-app/SETUP.md](/front-app/SETUP.md).
+
 ## Notes
 
 - This guide is a high-level overview. Adjust steps as needed for your stack and requirements.
