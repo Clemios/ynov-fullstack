@@ -1,3 +1,5 @@
+// user.ts - Controller for user-related endpoints
+// Handles CRUD operations for users in the User Service API
 import { Request, Response } from 'express';
 import * as userService from '../services/user';
 

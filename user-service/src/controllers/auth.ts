@@ -1,3 +1,5 @@
+// auth.ts - Controller for authentication-related endpoints
+// Handles signup, login, and logout logic for the User Service API
 import { Request, Response } from 'express';
 import * as authService from '../services/auth';
 
